@@ -1,0 +1,289 @@
+:root {
+    --red: #ea4c4c;
+    --dark: #1a1a1a;
+    --light: #ffffff;
+    --ft-transform: perspective(200px);
+    --ftb-transform: perspective(200px) rotateX(180deg);
+    --shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+body {
+    margin: 0;
+    background-size: cover;
+    font: normal 1em "Lato";
+    background-position: center;
+    background-image: url(bg.jpg);
+}
+
+canvas {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+main {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    background-size: 20%;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(145, 144, 144, 0.7);
+}
+
+h1 {
+    text-align: center;
+    margin: 0 20px 20px;
+    font: 600 2.25em "Lato";
+    text-transform: uppercase;
+}
+
+h1 strong {
+    font-weight: 700;
+    color: #ea4c4c;
+}
+
+p {
+    text-align: center;
+    margin: 0 20px 20px;
+    text-transform: uppercase;
+}
+
+.countdown {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.countdown .block {
+    margin: 10px;
+    flex: 0 0 120px;
+}
+
+.block .title {
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.block .figure {
+    float: left;
+    width: 100%;
+    height: 120px;
+    border-radius: 8px;
+    position: relative;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
+    -moz-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
+    -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), inset 2px 4px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+.figure>span {
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #de4848;
+    font-weight: 700;
+    position: absolute;
+    font: normal 4em/120px "Lato";
+}
+
+.figure .top:after,
+.figure .bottom-back:after {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    content: "";
+    height: 100%;
+    position: absolute;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.figure .top {
+    z-index: 3;
+    background-color: #f7f7f7;
+    transform-origin: 50% 100%;
+    -webkit-transform-origin: 50% 100%;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+    -moz-transform: perspective(200px);
+    -ms-transform: perspective(200px);
+    -webkit-transform: perspective(200px);
+    transform: perspective(200px);
+}
+
+.figure .bottom {
+    z-index: 1;
+}
+
+.figure .bottom:before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    content: "";
+    height: 50%;
+    display: block;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.figure .bottom-back {
+    z-index: 2;
+    top: 0;
+    height: 50%;
+    overflow: hidden;
+    background-color: #f7f7f7;
+    -moz-border-radius-topleft: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    -webkit-border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.figure .bottom-back span {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+}
+
+.figure .top,
+.figure .top-back {
+    height: 50%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.figure .top-back {
+    bottom: 0;
+    z-index: 4;
+    transform-origin: 50% 0;
+    background-color: #fff;
+    -webkit-transform-origin: 50% 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    transform: perspective(200px) rotateX(180deg);
+    -ms-transform: perspective(200px) rotateX(180deg);
+    -moz-transform: perspective(200px) rotateX(180deg);
+    -webkit-transform: perspective(200px) rotateX(180deg);
+}
+
+.figure .top-back span {
+    left: 0;
+    right: 0;
+    top: -100%;
+    margin: auto;
+    position: absolute;
+}
+
+/* Contact Info Styles - Under Countdown */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.contact-label {
+    font-weight: 600;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.contact-link {
+    color: #ea4c4c;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #1a1a1a;
+    text-decoration: underline;
+}
+
+/* Footer Styles - Copyright Only */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+    background-color: rgba(26, 26, 26, 0.8);
+    color: #ffffff;
+    font-family: "Lato", sans-serif;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.copyright {
+    text-align: center;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .contact-item {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+        font-size: 14px;
+    }
+
+    .contact-info {
+        gap: 10px;
+        padding: 12px;
+        margin-top: 15px;
+        margin-bottom: 50px;
+    }
+}
